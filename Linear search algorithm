@@ -1,0 +1,57 @@
+Linear search algorithm
+Write a program to implement a Linear searching algorithm for searching an element in an array.
+
+
+
+Format:
+
+Input:
+
+The first line corresponds to the size of an array.
+
+The second line corresponds to the elements in an array.
+
+The third input corresponds to an element that has to be searched.
+
+Output:
+
+If the searching element is present in the array. Print the number along with the location, Eg:" 10 is present at location 6". Otherwise, print "Not found".
+
+
+
+Example:
+
+Input:
+
+6
+
+11 15 26 38 9 10
+
+10 
+
+Output:
+
+10 is present at location 6.
+
+CODE:
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int a[]=new int[n];
+    for (int i=0;i<n;i++){
+      a[i]=sc.nextInt();
+    } 
+    int x=sc.nextInt();
+    for (int i=0;i<n;i++){
+      if(x==a[i])	{
+        System.out.println(x+" is present at location "+(i+1)+".");
+      	return;
+      }
+    }
+    System.out.println("Not found");
+  }
+}
