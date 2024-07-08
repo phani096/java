@@ -1,0 +1,73 @@
+All numbers with specific difference
+Given two positive numbers, N and D. Write a program to count the numbers smaller than N. Such that the difference between the number and sum of its digits is greater than, or equal to the given specific value D.
+
+
+
+Format:
+
+Input:
+
+The first line of input contains a single integer T which denotes the number of test cases. Then T test cases follow. The first line of each test case contains two space-separated integers N and D.
+
+Output:
+
+For each test case, print the count of numbers smaller than N. Such that the difference between the number and sum of its digits is greater than, or equal to D.
+
+
+
+Constraints:
+
+1 <= T <= 100
+
+1 <= N <= 105
+
+1 <= D <= 104
+
+
+
+Example 1:
+
+Input:
+
+13 2
+
+Output:
+
+4
+
+
+Case 1
+Input (stdin)
+13 2
+
+Output (stdout)
+4
+
+CODE:
+import java.util.*;
+class Main
+{
+  static int sumofdigits(int i){
+    int r,sum=0;
+    while(i!=0){
+      r=i%10;
+      sum=sum+r;
+      i=i/10;
+    }
+    return sum;
+  }
+  public static void main(String args[])
+  {
+    Scanner sc=new Scanner(System.in);
+    int N=sc.nextInt();
+    int D=sc.nextInt();
+    int count=0;
+    for(int i=0;i<=N;i++)
+    {
+      int diff=i-sumofdigits(i);
+      if(diff>0)
+        count++;
+    }
+    System.out.println(count);
+  }
+}
