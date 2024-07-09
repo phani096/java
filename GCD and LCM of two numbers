@@ -1,0 +1,70 @@
+GCD and LCM of two numbers
+Given two positive numbers, find GCD and LCM of two numbers.
+
+
+
+Constraints:
+
+0 < N1 < 106
+
+0 < N2 < 106
+
+
+
+Format:
+
+Input:
+
+The input consists of two space-separated integers.
+
+Output:
+
+The first line represents the GCD of two numbers, the second line represents the LCM of two numbers.
+
+
+
+Example 1:
+
+Input:
+
+10 20
+
+Output:
+
+10
+
+20
+
+
+
+Example 2:
+
+Input:
+
+8 12
+
+Output:
+
+4
+
+24
+
+CODE:
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N1 = sc.nextInt();
+        int N2 = sc.nextInt();
+        int gcd = findGCD(N1, N2);
+        int lcm = (N1 * N2) / gcd;
+        System.out.println(gcd);
+        System.out.println(lcm);
+    }
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return findGCD(b, a % b);
+    }
+}
