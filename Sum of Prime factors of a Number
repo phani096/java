@@ -1,0 +1,65 @@
+Given a number N, the task is to find the sum of all the prime factors of N.
+
+
+
+Example 1:
+
+Input:
+
+60
+
+Output:
+
+10
+
+Explanation:
+
+2, 3, and 5 are the prime factors of 60. Their sum will be 10.
+
+
+
+Example 2:
+
+Input:
+
+39
+
+Output:
+
+16
+
+Explanation:
+
+3 and 13 are the prime factors of 39. Their sum will be 16.
+
+CODE":
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        System.out.println(sumOfPrimeFactors(N));
+    }
+    public static int sumOfPrimeFactors(int N) {
+        int sum = 0;
+        Set<Integer> primeFactors = new HashSet<>();   
+        while (N % 2 == 0) {
+            primeFactors.add(2);
+            N /= 2;
+        }
+        for (int i = 3; i <= Math.sqrt(N); i += 2) {
+            while (N % i == 0) {
+                primeFactors.add(i);
+                N /= i;
+            }
+        }
+        if (N > 2) {
+            primeFactors.add(N);
+        }
+        for (int factor : primeFactors) {
+            sum += factor;
+        }
+        return sum;
+    }
+}
