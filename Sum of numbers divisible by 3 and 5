@@ -1,0 +1,60 @@
+Sum of numbers divisible by 3 and 5
+In this program, you are required to implement this function: int SumNumbersDivisible (int m, int n); The function accepts 2 positive integers ‘m’ and ‘n’ as its arguments. You are required to calculate the sum of numbers divisible by both 3 and 5, between ‘m’ and ‘n’. Include the starting range, exclude the ending range and return the same.
+
+
+
+Format:
+
+Input:
+
+The first line consists of an integer value m.
+
+The second line consists of an integer value n.
+
+Output:
+
+We have to obtain the output, that is the sum of the divisible by both 3 and 5.
+
+
+
+Constraint:
+
+0 < m <= n
+
+
+
+Example:
+
+Input:
+
+12
+
+50
+
+Output:
+
+90
+
+Explanation:
+
+The numbers divisible by both 3 and 5, between 12 and 50 are {15, 30, 45} and their sum is 90.
+
+CODE:
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        System.out.println(sumNumbersDivisible(m, n));
+    }
+    public static int sumNumbersDivisible(int m, int n) {
+        int sum = 0;
+        for (int i = m; i < n; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+}
